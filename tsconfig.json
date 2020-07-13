@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "module": "esnext"
+  },
+  "extensions": {
+    "**/*.ts": "TS",
+    "**/*.tsx": "TSX",
+    "**/*.jsx": "JSX"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "overrides": [
+    {
+      "files": "['*.ts', '*.tsx']",
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "[2, { args: 'none' }]"
+      }
+    }
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/auth/sign-up.tsx"
+  ],
+  "typeRoots": [
+    "node_modules/@types",
+    "@Types"
+  ]
+}

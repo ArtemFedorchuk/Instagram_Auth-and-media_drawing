@@ -1,0 +1,27 @@
+	.wrapperForm {
+		width: 300px;
+		margin-top: 100%;
+		background: #424242;
+		padding: 40px 20px;
+		border-radius: 5px;
+		.formTitle {
+			font-size: 20px;
+			text-transform: uppercase;
+		}
+		.btnInst {
+			background: #fb3958;
+			color: black;
+			padding: 5px 15px;
+			border-radius: 5px;
+			border: none;
+			font-size: 14px;
+			text-transform: uppercase;
+			font-weight: bold;
+			outline: none;
+			&:hover {
+				background: rgba(	251,	57,	88, 0.9);
+				transition: .25s ease;
+				cursor: pointer;
+			}
+		}
+	}
