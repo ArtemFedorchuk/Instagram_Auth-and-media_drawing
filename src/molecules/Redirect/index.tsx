@@ -4,14 +4,23 @@ import { Link } from 'react-router-dom';
 import { constants } from '../../constants'
 import { Preloader } from '../../atoms'
 
-const Profile = () => {
-  const [ userData, setUserData ]: any = useState(null);
-  const [ userInfo, setUserInfo ]: any = useState(null);
-  const [ profileInfo, setProfileInfo ]: any = useState(null);
+const Profile: React.FC = () => {
+  interface IUserData{
+    id: string
+    media_type?: string
+    media_url: string
+    timestamp?: string
+    caption?: string
+    permalink: string
+  }
 
-  const dataArr = [];
-  const userDataArr = [];
-  const profileData = [];
+  const [ userData, setUserData ]: Array<any> = useState(null);
+  const [ userInfo, setUserInfo ]: Array<any> = useState(null);
+  const [ profileInfo, setProfileInfo ]: Array<any> = useState(null);
+
+  const dataArr: Array<any> = [];
+  const userDataArr: Array<any> = [];
+  const profileData: Array<any> = [];
 
   if(userData){
     const { access_token: token, user_id: idUs } = userData;
@@ -83,14 +92,14 @@ const Profile = () => {
   return (
     <div className={styles.wrapper}>
       {profileInfo ? (
-        <div key={4}>
+        <div>
           <div className={styles.wrapperContent}>
             <h2 className={styles.contentTitle}>{userName}</h2>
             {
               profileData.map((items) => {
                 return Object.values(items).map((item) => {
                   return Object.values(item).map((i) => {
-                    const { id, media_type, media_url, timestamp, caption, permalink } = i;
+                    const { id, media_type, media_url, timestamp, caption, permalink }:IUserData  = i;
                     return (
                       <div key={id} className={styles.contentInfoWrap}>
                         {media_type !== 'VIDEO' ? (
