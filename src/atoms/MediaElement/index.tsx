@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../../molecules/Redirect/styles.module.scss';
+import styles from './styles.module.scss';
 
-const MediaElement = ({item}) => {
+const MediaElement = ({ item }) => {
   interface IProfileDataItem{
     id: string
     media_type?: string
