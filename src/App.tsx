@@ -4,7 +4,6 @@ import { routes } from './constants/'
 import styles from './styles.module.scss';
 import { SignUpPage } from './pages';
 import Profile from './molecules/Redirect';
-import Post from './molecules/User';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Switch>
         <Route exact path={routes.AUTH} component={SignUpPage} />
         <Route exact path={routes.Profile} component={Profile}/>
-        <Route exact path={routes.POST} component={Post}/>
       </Switch>
     </div>
   );
