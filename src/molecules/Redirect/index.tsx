@@ -39,7 +39,6 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
       let userUrl = document.location.href.match(/.*code=(.*)#_/);
-      if(userUrl && userUrl.length === 2){}
 
       const body = new FormData();
         body.append("client_id", `${constants.idInst}`);
@@ -89,6 +88,8 @@ const Profile: React.FC = () => {
     }
   },[idUser, userToken]);
 
+  // console.log('profileInfo', profileInfo);
+
   return (
     <div className={styles.wrapper}>
       {profileInfo ? (
@@ -96,10 +97,10 @@ const Profile: React.FC = () => {
           <div className={styles.wrapperContent}>
             <h2 className={styles.contentTitle}>{userName}</h2>
             {
-              profileData.map((items) => {
-                return Object.values(items).map((item: IProfileDataItem) => {
+              profileData.map((items: any[]) => {
+                return Object.values(items).map((item: IProfileDataItem, id) => {
                   return (
-                    <MediaElement item={item} />
+                    <MediaElement key={id} items={item} />
                   )
                 })
               })
