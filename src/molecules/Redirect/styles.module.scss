@@ -10,48 +10,6 @@
 	}
 }
 
-.wrapperContent {
-		width: 95vw;
-		background: #424242;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin: 20px 0;
-		padding: 40px 20px;
-		border-radius: 5px;
-		.contentTitle {
-			padding-bottom: 20px;
-			font-size: 22px;
-			text-transform: uppercase;
-		}
-		.contentInfoWrap {
-			background: #323131;
-			width: 70%;
-			border-bottom: 1px solid rgba(0,0,0, 0.8);
-			.profileImg {
-				width: 70%;
-				border-radius: 5px;
-				padding: 20px;
-			}
-			.photoInfo {
-				padding-bottom: 20px;
-				display: flex;
-				justify-content: space-around;
-				align-items: baseline;
-				.like {
-					padding: 10px;
-					color: gold;
-				}
-			}
-			.postText {
-				margin: 0 auto;
-				width: 70%;
-				padding: 25px 0;
-				background: #323131;
-			}
-		}
-	}
-
 .wrapperBtn {
 	display: flex;
 	justify-content: space-around;

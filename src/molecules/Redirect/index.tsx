@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import { constants } from '../../constants'
-import { Preloader } from '../../atoms'
+import { Preloader, MediaElement } from '../../atoms'
+import styles from './styles.module.scss';
 
 const Profile: React.FC = () => {
-  interface IUserData{
+  interface IProfileDataItem{
     id: string
     media_type?: string
     media_url: string
@@ -18,9 +18,9 @@ const Profile: React.FC = () => {
   const [ userInfo, setUserInfo ]: Array<any> = useState(null);
   const [ profileInfo, setProfileInfo ]: Array<any> = useState(null);
 
-  const dataArr: Array<any> = [];
-  const userDataArr: Array<any> = [];
-  const profileData: Array<any> = [];
+  const dataArr: Array<object> = [];
+  const userDataArr: Array<object> = [];
+  const profileData: Array<object> = [];
 
   if(userData){
     const { access_token: token, user_id: idUs } = userData;
@@ -97,29 +97,10 @@ const Profile: React.FC = () => {
             <h2 className={styles.contentTitle}>{userName}</h2>
             {
               profileData.map((items) => {
-                return Object.values(items).map((item) => {
-                  return Object.values(item).map((i) => {
-                    const { id, media_type, media_url, timestamp, caption, permalink }:IUserData  = i;
-                    return (
-                      <div key={id} className={styles.contentInfoWrap}>
-                        {media_type !== 'VIDEO' ? (
-                          <>
-                            <a href={permalink}>
-                              <img
-                                className={styles.profileImg}
-                                src={media_url}
-                                alt={media_type}
-                              />
-                            </a>
-                            <div className={styles.photoInfo}>
-                              <div className={styles.like}>{caption}</div>
-                              <div>{timestamp}</div>
-                            </div>
-                          </>
-                        ): false }
-                      </div>
-                    )
-                  })
+                return Object.values(items).map((item: IProfileDataItem) => {
+                  return (
+                    <MediaElement item={item} />
+                  )
                 })
               })
             }
