@@ -1,23 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import { constants } from '../../constants'
+import { getAuthInstagramUrl } from '../../API';
 
-
-const SignUp = (props) => {
-  const [ intUrl, setInstUrl ] = useState();
+const SignUp = ( props ) => {
+  const [ intUrl, setInstUrl ] = useState ('');
 
   if(constants.testUrl && constants.testUrl.length === 2) {
   }
 
     useEffect( () => {
-    fetch(`${constants.auth}`)
-      .then((response) => {
-          return response;
-      })
-      .then((result:object) => {
-        // @ts-ignore
-        return setInstUrl(result.url);
-      })
+      getAuthInstagramUrl()
+        .then((url => setInstUrl(url)))
     });
 
   const urlHandler =() => {
