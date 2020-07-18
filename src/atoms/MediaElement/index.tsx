@@ -14,7 +14,7 @@ interface IArrMediaData {
   items: IMediaData[]
 }
 
-const MediaElement = ({ items }: IArrMediaData ) => {
+const MediaElement: React.FC<IArrMediaData> = ({ items }) => {
 
   return (
     <>
